@@ -1,0 +1,10 @@
+const dbConfig = require("../config/db.config.js");
+const mongoose = require("mongoose");
+mongoose.Promise = global.Promise;
+const db = {};
+db.mongoose = mongoose;
+db.url = dbConfig.url;
+db.pessoa = require("./pessoa.model.js")(mongoose);
+db.filme = require("./filme.model.js")(mongoose);
+db.locacao = require("./locacao.model.js")(mongoose);
+module.exports = db;
